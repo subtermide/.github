@@ -35,6 +35,7 @@ SubTerm is an open-source, browser-based IDE designed for developers who want a 
 <td width="50%">
 
 ### For Developers
+
 - **Instant Environment** — Start coding in seconds
 - **Full Terminal Access** — Complete bash shell with PTY
 - **VS Code Experience** — Monaco editor with IntelliSense
@@ -44,6 +45,7 @@ SubTerm is an open-source, browser-based IDE designed for developers who want a 
 <td width="50%">
 
 ### For Teams
+
 - **Real-Time Collaboration** — Edit together, see cursors live
 - **Session Sharing** — Invite teammates instantly
 - **Isolated Workspaces** — Sandboxed containers per session
@@ -57,14 +59,14 @@ SubTerm is an open-source, browser-based IDE designed for developers who want a 
 
 ## Features
 
-| | Feature | Description |
-|:---:|---------|-------------|
-| **Editor** | Monaco | VS Code engine with syntax highlighting for 20+ languages |
-| **Terminal** | Full PTY | Complete bash shell with command history |
-| **Collab** | Real-Time | CRDT-powered sync with live cursor tracking |
-| **Security** | Sandboxed | Isolated Docker containers per session |
-| **Import** | GitHub | Clone public repositories directly |
-| **Share** | Instant | One-click workspace sharing |
+|              | Feature   | Description                                               |
+| :----------: | --------- | --------------------------------------------------------- |
+|  **Editor**  | Monaco    | VS Code engine with syntax highlighting for 20+ languages |
+| **Terminal** | Full PTY  | Complete bash shell with command history                  |
+|  **Collab**  | Real-Time | CRDT-powered sync with live cursor tracking               |
+| **Security** | Sandboxed | Isolated Docker containers per session                    |
+|  **Import**  | GitHub    | Clone public repositories directly                        |
+|  **Share**   | Instant   | One-click workspace sharing                               |
 
 ---
 
@@ -116,12 +118,12 @@ Open `http://localhost:5173` and start coding.
 
 ## Documentation
 
-| Document | Description |
-|----------|-------------|
-| [**Architecture**](https://github.com/dipsubhro/subterm/blob/main/docs/architecture.md) | System design, services, and data flow |
-| [**Deployment**](https://github.com/dipsubhro/subterm/blob/main/docs/deployment.md) | Production setup and configuration |
-| [**Collaboration**](https://github.com/dipsubhro/subterm/blob/main/docs/collaboration.md) | Real-time editing with Yjs |
-| [**Execution Engine**](https://github.com/dipsubhro/subterm/blob/main/docs/execution-engine.md) | Container orchestration and PTY |
+| Document                                                                                        | Description                            |
+| ----------------------------------------------------------------------------------------------- | -------------------------------------- |
+| [**Architecture**](https://github.com/dipsubhro/subterm/blob/main/docs/architecture.md)         | System design, services, and data flow |
+| [**Deployment**](https://github.com/dipsubhro/subterm/blob/main/docs/deployment.md)             | Production setup and configuration     |
+| [**Collaboration**](https://github.com/dipsubhro/subterm/blob/main/docs/collaboration.md)       | Real-time editing with Yjs             |
+| [**Execution Engine**](https://github.com/dipsubhro/subterm/blob/main/docs/execution-engine.md) | Container orchestration and PTY        |
 
 ---
 
