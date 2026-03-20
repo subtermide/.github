@@ -15,7 +15,7 @@
 
 <br />
 
-![SubTerm IDE Preview](../../preview.png)
+![SubTerm IDE Preview](../preview.png)
 
 <br />
 
