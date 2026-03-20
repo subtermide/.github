@@ -15,9 +15,8 @@
 
 <br />
 
-<img src="https://raw.githubusercontent.com/dipsubhro/subterm/main/preview.png" alt="SubTerm IDE Preview" width="100%" style="border-radius: 8px;" />
+![SubTerm IDE Preview](../../preview.png)
 
-<br />
 <br />
 
 [Get Started](#quick-start) · [Documentation](https://github.com/dipsubhro/subterm/tree/main/docs) · [Report Bug](https://github.com/dipsubhro/subterm/issues) · [Request Feature](https://github.com/dipsubhro/subterm/issues)
@@ -90,16 +89,40 @@ Open `http://localhost:5173` and start coding.
 ## Architecture
 
 ```
-┌─────────────┐     ┌─────────────┐     ┌─────────────────────────┐
-│   Browser   │────▶│   Gateway   │────▶│   Docker Containers     │
-│   (React)   │     │   (Node.js) │     │   (Isolated Sessions)   │
-└─────────────┘     └──────┬──────┘     └─────────────────────────┘
-                           │
-                    ┌──────▼──────┐
-                    │    Redis    │
-                    │  (Sessions) │
-                    └─────────────┘
+                              ┌───────────────────────────────────────┐
+                              │          Docker Containers            │
+                              │  ┌─────────┐ ┌─────────┐ ┌─────────┐  │
+                              │  │ Session │ │ Session │ │ Session │  │
+                              │  │    1    │ │    2    │ │    3    │  │
+                              │  │ :3000   │ │ :3000   │ │ :3000   │  │
+                              │  └─────────┘ └─────────┘ └─────────┘  │
+                              └───────────────────────────────────────┘
+                                              ▲
+                                              │ proxy
+                                              │
+┌──────────┐    create session    ┌─────────────────────┐
+│          │ ────────────────────▶│       Gateway       │
+│  Browser │                      │       :4000         │
+│ (React)  │                      └──────────┬──────────┘
+│  :5173   │                                 │
+│          │    workspace traffic  ┌─────────▼──────────┐
+│          │ ────────────────────▶│       Router        │
+└──────────┘                      │       :5500         │
+                                  └──────────┬──────────┘
+                                             │
+                                             ▼
+                                  ┌─────────────────────┐
+                                  │        Redis        │
+                                  │    (Session Store)  │
+                                  │       :6379         │
+                                  └─────────────────────┘
 ```
+
+**Flow:**
+1. Browser requests a new session → **Gateway** creates a Docker container
+2. Gateway stores session mapping in **Redis**
+3. Browser connects to workspace → **Router** looks up container in Redis
+4. Router proxies HTTP/WebSocket traffic to the session container
 
 ---
 
